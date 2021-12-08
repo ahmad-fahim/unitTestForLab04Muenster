@@ -7,19 +7,19 @@ Created on Fri Nov 26 12:18:06 2021
 
 from Shape import Shape
 
+
 class Rectangle(Shape):
     
-    def __init__(self, topLeftPointX, topLeftPointY, width, height):
-        self.topLeftPointX = topLeftPointX 
-        self.topLeftPointY = topLeftPointY
+    def __init__(self, topLeftPoint, width, height):
+        self.topLeftPoint = topLeftPoint
         self.width = width
         self.height = height
         
     def getTopLeftPointX(self):
-        return self.topLeftPointX
+        return self.topLeftPoint.x
     
     def getTopLeftPointY(self):
-        return self.topLeftPointY
+        return self.topLeftPoint.y
     
     def getWidth(self):
         return self.width
@@ -28,8 +28,8 @@ class Rectangle(Shape):
         return self.height
         
     def setTopLeftPoint(self, topLeftPointX, topLeftPointY):
-        self.topLeftPointX = topLeftPointX
-        self.topLeftPointY = topLeftPointY
+        self.topLeftPoint.x = topLeftPointX
+        self.topLeftPoint.y = topLeftPointY
     
     def setWidth(self, width):
         self.width = width
@@ -44,15 +44,17 @@ class Rectangle(Shape):
         return 2 * (self.height + self.width)
         
     def contains(self, x, y):
-        if x >= self.topLeftPointX and x <= self.topLeftPointX + self.getWidth() and y >= self.topLeftPointY and y <= self.topLeftPointY + self.getHeight():
+        if x >= self.topLeftPoint.x and x <= self.topLeftPoint.x + self.getWidth() and y >= self.topLeftPoint.y and y <= self.topLeftPoint.y + self.getHeight():
             return True
         else:
             return False
         
     def centroid(self):
-        xCentroid = (self.topLeftPointX + self.getWidth() ) / 2
-        yCentroid = (self.topLeftPointY + self.getHeight() ) / 2
+        xCentroid = (self.topLeftPoint.x + self.getWidth() ) / 2
+        yCentroid = (self.topLeftPoint.x + self.getHeight() ) / 2
         return xCentroid, yCentroid
         
-    def toString(self, text):
-        return str(text)
+    def toString(self):
+        return "Rectangle [topLeftPoint = " + self.topLeftPoint.toString() + ") , Width = " + str(self.getWidth()) + ", Height = " + str(self.getHeight()) + "]"
+    
+    

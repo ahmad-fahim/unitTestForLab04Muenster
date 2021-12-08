@@ -10,23 +10,22 @@ class Circle(Shape):
     
     pi = 3.1416
     
-    def __init__(self, centerPointX, centerPointY, radius):
-        self.centerPointX = centerPointX
-        self.centerPointY = centerPointY
+    def __init__(self, centerPoint, radius):
+        self.centerPoint = centerPoint 
         self.radius = radius 
         
     def getCenterPointX(self):
-        return self.centerPointX
+        return self.centerPoint.x
     
     def getCenterPointY(self):
-        return self.centerPointY
+        return self.centerPoint.y
     
     def getRadius(self):
         return self.radius 
         
     def setCenterPoint(self, centerPointX, centerPointY):
-        self.centerPointX = centerPointX
-        self.centerPointY = centerPointY
+        self.centerPoint.x = centerPointX
+        self.centerPoint.y = centerPointY
     
     def setRadius(self, radius):
         self.radius = radius
@@ -38,10 +37,12 @@ class Circle(Shape):
         return 2 * self.pi * self.radius
         
     def contains(self, x, y):
-        if (x - self.centerPointX)**2 + (y-self.centerPointY)**2 <= self.radius**2:
+        if (x - self.centerPoint.x)**2 + (y-self.centerPoint.y)**2 <= self.radius**2:
             return True
         else:
             return False
         
-    def toString(self, text):
-        return str(text)
+    def toString(self):
+        return "Circle [centerPoint = " + self.centerPoint.toString() + ") , radius = " + str(self.radius) + "]"
+    
+    
