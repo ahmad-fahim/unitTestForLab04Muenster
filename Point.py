@@ -18,6 +18,7 @@ class Point(Shape):
     def setPosition(self, x, y):
         self.x = x 
         self.y = y
+        return True
     
     def toString(self):
         return "Point ( " + str(self.x) + ", " + str(self.y) + " )"
@@ -34,6 +35,8 @@ class Point(Shape):
         
     def setX(self, x):
         self.x = x
+        return True
 
     def setY(self, y):
         self.y = y
+        return True

@@ -26,9 +26,11 @@ class Circle(Shape):
     def setCenterPoint(self, centerPointX, centerPointY):
         self.centerPoint.x = centerPointX
         self.centerPoint.y = centerPointY
+        return True
     
     def setRadius(self, radius):
         self.radius = radius
+        return True
         
     def area(self):
         return self.pi * self.radius * self.radius

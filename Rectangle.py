@@ -30,12 +30,15 @@ class Rectangle(Shape):
     def setTopLeftPoint(self, topLeftPointX, topLeftPointY):
         self.topLeftPoint.x = topLeftPointX
         self.topLeftPoint.y = topLeftPointY
+        return True
     
     def setWidth(self, width):
         self.width = width
+        return True
         
     def setHeight(self, height):
         self.height = height
+        return True
         
     def area(self):
         return self.width * self.height

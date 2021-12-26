@@ -33,7 +33,6 @@ class TestPoint(unittest.TestCase):
         self.assertEqual("red", test_point.getFillColor())
         self.assertNotEqual("dfak", test_point.getFillColor())
         
-
     def test_get_X(self):
         test_point  =  Point.Point(15, 35)
                 
@@ -53,10 +52,24 @@ class TestPoint(unittest.TestCase):
         self.assertEqual(5, test_point.distance(4, 3))
         self.assertNotEqual(3, test_point.distance(4, 0)) 
         
+    def test_setPosition(self):
+        test_point = Point.Point(0, 0)
+        
+        self.assertTrue(test_point.setPosition(50, 40)) 
+        
+        
+    def test_setX(self):
+        test_point = Point.Point(0, 0)
+        
+        self.assertTrue(test_point.setX(50)) 
+        
+    def test_setY(self):
+        test_point = Point.Point(0, 0)
+        
+        self.assertTrue(test_point.setY(50)) 
         
         
 class TestRectangle(unittest.TestCase):
-    
     
     def test_get_StrokeWidth(self):
         rectangle_top_left_point = Point.Point(4, 6)
@@ -82,7 +95,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual("red", test_rectangle.getFillColor())
         self.assertNotEqual("dfak", test_rectangle.getFillColor())
     
-    
     def test_get_TopLeftPointX(self):
         rectangle_top_left_point = Point.Point(4, 6)
         test_rectangle  =  Rectangle.Rectangle(rectangle_top_left_point, 100, 200)
@@ -98,7 +110,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(6, test_rectangle.getTopLeftPointY())
         self.assertIs(6, test_rectangle.getTopLeftPointY())
         self.assertIsNot(153, test_rectangle.getTopLeftPointY())
-        
         
     def test_get_Width(self):
         rectangle_top_left_point = Point.Point(4, 6)
@@ -147,8 +158,31 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual((52, 102), test_rectangle.centroid())
         self.assertNotEqual((52, 203), test_rectangle.centroid())
         
+    def test_setTopLeftPoint(self):
+        rectangle_top_left_point = Point.Point(4, 6)
+        test_rectangle  =  Rectangle.Rectangle(rectangle_top_left_point, 100, 200)
+        
+        self.assertTrue(test_rectangle.setTopLeftPoint(50, 40)) 
+          
+    def test_setTopLeftPoint(self):
+        rectangle_top_left_point = Point.Point(4, 6)
+        test_rectangle  =  Rectangle.Rectangle(rectangle_top_left_point, 100, 200)
+        
+        self.assertTrue(test_rectangle.setTopLeftPoint(50, 40)) 
+        
+    def test_setWidth(self):
+        rectangle_top_left_point = Point.Point(4, 6)
+        test_rectangle  =  Rectangle.Rectangle(rectangle_top_left_point, 100, 200)
+        
+        self.assertTrue(test_rectangle.setWidth(50)) 
+        
+    def test_setHeight(self):
+        rectangle_top_left_point = Point.Point(4, 6)
+        test_rectangle  =  Rectangle.Rectangle(rectangle_top_left_point, 100, 200)
+        
+        self.assertTrue(test_rectangle.setHeight(50)) 
+        
 class TestCircle(unittest.TestCase):
-    
     
     def test_get_StrokeWidth(self):
         circle_center = Point.Point(30, 50)
@@ -219,8 +253,19 @@ class TestCircle(unittest.TestCase):
         
         self.assertTrue(test_circle.contains(10, 50))
         self.assertFalse(test_circle.contains(500, 500))
-
         
+    def test_setCenterPoint(self):
+        circle_center = Point.Point(30, 50)
+        test_circle = Circle.Circle(circle_center, 20)
+        
+        self.assertTrue(test_circle.setCenterPoint(50, 40)) 
+        
+    def test_setRadius(self):
+        circle_center = Point.Point(30, 50)
+        test_circle = Circle.Circle(circle_center, 20)
+        
+        self.assertTrue(test_circle.setRadius(50)) 
+ 
         
 if __name__ == '__main__': 
      unittest.main()
